@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cre Corner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <script type="module" src="login.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Cre Corner</div>
+    </header>
+
+    <section class="login-container">
+        <h1>Login</h1>
+        <div id = "signInMessage" class="messageDiv" style="display:none;"></div>
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button id="submitSignIn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Cre Corner. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

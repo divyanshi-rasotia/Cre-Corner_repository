@@ -1,0 +1,974 @@
+/* Reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', cursive;
+    background-color: #edcfd3; /* Light pastel pink background */
+    color: #444; /* Neutral text color */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: #f1dbde; /* Soft pastel pink */
+    font-size: 1.1em;
+}
+.nav-icons a {
+    margin: 0 10px;
+    color: #444;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.navbar .logo {
+    font-family: 'Georgia', cursive;
+    font-size: 1.5em;
+    color: #444;
+    margin-left: -30px;
+}
+
+.navbar .nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    gap: 25px;
+}
+@media (max-width: 768px){
+    .navbar .nav-icons {
+        position:relative;
+        margin-right: -14%;
+        gap:15px;
+    }
+    .navbar .nav-links{
+        position:relative;
+        margin-left: 5%;
+        gap:10px;
+    }
+}
+.navbar .nav-links a:hover {
+    color: #ff69b4; /* Change color on hover */
+}
+.navbar .nav-icons a:hover {
+    color: #f95dab; /* Change color on hover */
+}
+
+/* Banner Section */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 120px 10%;
+    background-image:url("images/background.jpg");
+    background-size:cover;
+    background-position:center; 
+    background-repeat:no-repeat;
+    overflow:hidden;
+    width: 100vw; /* Full width of the viewport */
+    margin-left: calc(50% - 50vw); /* Centers the full-width banner */
+}
+.banner-content{
+    position:relative;
+    z-index:2;
+    text-align: center;
+}
+
+.bear-image {
+    position: absolute;
+    top: -80px; /* Adjust this value to place the bear just above "Corner" */
+    left: 80%; /* Centers the bear */
+    transform: translateX(-50%); /* Centers the bear horizontally above "Corner" */
+    width: 180px; /* Adjust the size of the bear as needed */
+    height: auto;
+}
+.banner-content h1 {
+    font-family: 'Georgia', cursive;
+    font-size: 6em;
+    color: #dc2882; /* Slightly darker pink for contrast */
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.shop-now {
+    padding: 12px 30px;
+    background-color: #ff69b4;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.shop-now:hover {
+    background-color: #d94f70; /* Darker pink on hover */
+}
+/* Responsive adjustments for the banner */
+/* Adjust layout for small screens */
+@media (max-width: 768px) {
+    .banner {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center content */
+        text-align: center; /* Center text */
+    }
+
+    .decor {
+        position: static; /* Remove absolute positioning */
+        margin-bottom: 10px; /* Add spacing between images */
+        width: 80%; /* Adjust image size for mobile */
+    }
+
+    .bear-image {
+        position: static; /* Remove absolute positioning */
+        width: 100px; /* Adjust size for smaller screens */
+    }
+
+    .banner-content {
+        order: 2; /* Move text below images */
+        margin-top: 20px; /* Add spacing */
+    }
+    .banner-content h1{
+        margin-top: 290px;
+    }
+    .banner-content .shop-now{
+        align-items:center;
+        margin-left: 18%;
+        font-size: 2ch;
+
+    }
+    .banner-content .bear-image{
+        margin-left: -16%;
+    }
+    .bottom-center-image {
+        position: static; /* Remove absolute positioning */
+        width: 100%; /* Ensure it scales properly */
+        height: 100%;
+        margin-top: -150ch;
+    }
+} 
+/* Decorative Images */
+.decor {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    opacity: 0; /* Slight transparency */
+}
+.bottom-center-image {
+    position: absolute;
+    bottom: 0; /* Aligns the image at the bottom of the banner */
+    left: 50%; /* Centers the image horizontally */
+    transform: translateX(-50%); /* Adjusts the centering */
+    width: 40%; /* Adjust size as needed */
+    height: auto;
+    z-index: 1; /* Keeps it above the background */
+}
+.decor-left {
+    left: -150px; /* Start outside the viewport on the left */
+    top: 8%;
+    width: 350px;
+    height: 350px;
+    clip-path: circle(50%);
+    animation: slideInLeft 1s ease forwards;
+}
+
+.decor-right {
+    right: -150px; /* Start outside the viewport on the right */
+    top:8%;
+    width: 350px;
+    height: 350px;
+    clip-path: circle(50%);
+    animation: slideInRight 1s ease forwards;
+}
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100px); /* Start from the left */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateX(150px); /* End position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Slide-in from Right Animation */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100px); /* Start from the right */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateX(-150px); /* End position */
+        opacity: 1; /* Fully visible */
+    }
+}
+.about {
+    position: relative;
+    padding: 50px 10%;
+    background-color: #edcfd3;
+    color: #444;
+    overflow: hidden;
+}
+
+.about.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about h2 {
+    font-size: 2em;
+    color: #ff69b4;
+    margin-bottom: 15px;
+}
+
+.about p {
+    font-size: 1.1em;
+    color: #666;
+    line-height:1.6;
+}
+
+/* latest youtube video section */
+.latest-video {
+    text-align: center;
+    margin: 40px 0;
+}
+/* Video banner container */
+.video-banner {
+    position: relative;
+    width: 100%;
+    height: 75vh; /* Adjust the height based on your preference */
+    overflow: hidden;
+}
+@media (max-width: 768px) {
+    .video-banner {
+        height: 50vh; /* Reduce height for mobile */
+    }
+
+    .video-banner .banner-content h1 {
+        font-size: 1.5em; /* Reduce font size */
+    }
+
+    .video-banner video {
+        min-width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Video element */
+.video-banner video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire area */
+    z-index: 1; /* Ensures the video stays behind the content */
+}
+
+/* Overlay content container */
+.video-banner .banner-content {
+    position: absolute;
+    top: 50%; /* Vertically centers the content */
+    left: 50%; /* Horizontally centers the content */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; /* Ensures the content appears above the video */
+}
+
+/* Heading styles */
+.video-banner .banner-content h1 {
+    font-size: 3rem; /* Adjust the size based on your preference */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds a shadow for better visibility */
+    margin: 0;
+}
+
+.latest-video h2{
+    color:#ff69b4;
+    margin-bottom: 20px;
+    font-size:2em;
+}
+
+.latest-video video {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd; /* Optional: Add a border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+/* Featured Products Section */
+.featured-products {
+    padding: 50px 10%;
+    background-color: #f9f2f4;
+    color: #444;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.featured-products h2 {
+    font-size: 2em;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .video-banner {
+        height: 50vh; /* Reduce height for mobile */
+    }
+
+    .video-banner .banner-content h1 {
+        font-size: 1.5em; /* Reduce font size */
+    }
+
+    .video-banner video {
+        min-width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Products Container */
+.products-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Flip Card Styling */
+.product-card {
+    perspective: 1000px; /* Enables 3D effect */
+    width: 200px;
+    height: 250px;
+}
+@media( max-width: 768px){
+    .product-card {
+        position: relative;
+        }
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Enables 3D flip */
+}
+
+.product-card:hover .card-inner {
+    transform: rotateY(180deg); /* Flip the card on hover */
+}
+
+/* Front and Back of the Card */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back when the front is visible */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Front of the Card */
+.card-front {
+    background-color: white;
+}
+
+.card-front img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card-front h3 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Back of the Card */
+.card-back {
+    background-color: #ff69b4;
+    color: white;
+    transform: rotateY(180deg); /* Starts flipped for the back side */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card-back p {
+    font-size: 0.8em;
+    font-family: Garamond ;
+}
+/* Customer Reviews Section */
+.customer-reviews {
+    padding: 50px 10%;
+    background-color: #f9f2f4;
+    text-align: center;
+}
+
+.customer-reviews h2 {
+    font-size: 2.5em;
+    color: #ff69b4;
+    margin-bottom: 75px;
+    font-family: 'Georgia', cursive; /* Cute font */
+}
+
+/* Review Container */
+.review-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Review Card */
+.review-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    padding-top: 60px; /* Extra padding to accommodate the floating image */
+}
+
+/* Customer Photo Styling */
+.customer-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: -40px; /* Positions the photo halfway above the card */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #ff69b4; /* Border around the photo */
+    background-color: white; /* Ensures the photo stands out with a background */
+}
+
+/* Customer Info and Review Text */
+.customer-info {
+    margin-top: 28px; /* Space below the photo */
+}
+
+.customer-info h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 5px 0;
+}
+
+.location {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.rating {
+    font-size: 1em;
+    color: #ffcc00; /* Gold stars */
+}
+
+.review-text {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+    font-style: italic;
+    margin-top: 15px;
+}
+/* Footer Section */
+.footer {
+    background-color: #ffebf0; /* Light pastel pink background */
+    color: #444;
+    padding: 40px 5%; /* Padding to provide some space on the sides */
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+}
+
+/* Footer Brand Section */
+.footer-brand h3 {
+    font-family: 'Pacifico', cursive;
+    color: #ff69b4;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-size: 0.9em;
+    color: #666;
+    max-width: 250px;
+}
+
+/* Contact Information */
+.footer-contact h4, .footer-social h4 {
+    font-size: 1.2em;
+    color: #ff69b4;
+    margin-bottom: 10px;
+}
+
+.footer-contact p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Social Media Icons */
+.footer-social .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: #ff69b4;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+.footer-social h4 {
+     margin-left: 120px;
+}
+.footer-social a:hover {
+    color: #d94f70;
+}
+
+/* Footer Columns Styling */
+.footer-brand, .footer-contact, .footer-social {
+    flex: 1; /* Each section takes up equal width */
+    min-width: 200px; /* Ensures each section has a minimum width */
+    padding: 10px; /* Padding inside each column */
+}
+
+/* Bottom Section (Copyright) */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        /* flex-direction: column; */
+        text-align: center;
+    }
+
+    .footer-brand, .footer-contact, .footer-social {
+        margin-bottom: 20px;
+    }
+}
+/* Shop Section */
+.shop-section {
+    padding: 50px 5%;
+    background-color: #f9f2f4; /* Light pastel background */
+    text-align: center;
+    width: 100%;
+}
+
+.shop-section h2 {
+    font-size: 2.5em;
+    color: #ff69b4;
+    margin-bottom: 30px;
+    font: Serif;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Responsive grid */
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin:0 auto;
+}
+/* Responsive Grid */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        gap:4px;
+        margin-left: -2%;
+    }
+}
+
+/* Product Card */
+.product-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+@media(max-width: 768px){
+    .product-grid.product-card {
+        display:grid;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        gap:1.3px;
+    }
+}     
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Product Info */
+.product-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-info .price {
+    font-size: 1em;
+    color: #ff69b4;
+    margin-bottom: 10px;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    padding: 8px 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #d94f70;
+}
+/* Floating Add to Cart Button */
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card .add-to-cart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 105, 180, 0.9); /* Semi-transparent pink */
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .add-to-cart {
+    transform: translateY(0); /* Slide up on hover */
+}
+a{
+    text-decoration: none;
+}
+/* About Page Styles */
+.about-intro, .about-story, .about-values, .about-team, .about-testimonials, .about-cta {
+    padding: 40px 10%;
+    text-align: center;
+    background-color: #f9f2f4;
+    margin-bottom: 60px;
+}
+
+.about-intro h1, .about-story h2, .about-values h2, .about-team h2, .about-testimonials h2, .about-cta h2 {
+    color: #ff69b4;
+    font-family: 'Georgia', cursive;
+    /* text-align: center; */
+    margin-bottom: 20px;
+}
+.about-intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about-intro-content p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    max-width: 400px;
+    text-align: center;
+    margin: 0 20px; 
+}
+
+.about-image {
+    width: 200px; /* Set desired width for the images */
+    height: auto;
+}
+.left-image {
+    left: -200px; /* Start outside the viewport on the left */
+    top: 8%;
+    margin-right: 20px; /* Space between image and text */
+}
+
+.right-image {
+    margin-left: 20px; /* Space between image and text */
+}
+.about-intro p, .about-story p, .about-values p, .about-testimonials p, .about-cta p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.team-grid {
+    display: flex;
+   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}
+
+.team-member {
+    display: flex;
+    align-items: center; 
+    text-align: left; /* Align text on left side within the container */
+    max-width: 600px;
+    gap: 20px;
+    padding: 0;
+    background-color: transparent;
+    margin-left: 100px;
+}
+
+.team-member img {
+    width: 30%;
+    height: auto;
+    margin-left: 30px;
+}
+
+.member-info h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin: 0;;
+}
+
+.member-info h4 {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0;
+    font-weight: normal;
+}
+.team-member p {
+    font-size: 0.9em;
+    margin:0;
+    color: #666;
+}
+
+.about-testimonials .testimonial {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    color: #555;
+}
+
+.about-testimonials .testimonial h4 {
+    text-align: right;
+    margin-top: 10px;
+    color: #ff69b4;
+}
+
+.about-cta {
+    background-color: #ffebf0;
+    padding: 50px 10%;
+}
+
+.about-cta .shop-now {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #ff69b4;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.about-cta .shop-now:hover {
+    background-color: #d94f70;
+}
+/* Contact Section */
+.contact-section {
+    padding: 50px 10%;
+    background-color: #f9f2f4;
+    text-align: center;
+}
+
+.contact-section h1 {
+    font-size: 2.5em;
+    color: #ff69b4;
+    font-family: 'Georgia', cursive;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* Contact Information */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+    color: #666;
+    max-width: 250px;
+}
+
+.info-item i {
+    font-size: 1.5em;
+    color: #ff69b4;
+    margin-top: -28px;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form h2 {
+    color: #ff69b4;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #ff69b4;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #d94f70;
+}
+
+/* Social Media Section */
+.social-media {
+    margin-top: 40px;
+}
+
+.social-media h2 {
+    font-size: 1.8em;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: #ff69b4;
+    font-size: 2em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #d94f70;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+}
+
+/* cart page */
+.cart-item-image {
+    width: 100px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image fits nicely */
+    border-radius: 8px; /* Optional: add rounded corners */
+    margin-right: 10px; /* Add some spacing */
+}

@@ -1,0 +1,23 @@
+.profile-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center elements vertically */
+    align-items: center; /* Center elements horizontally */
+    height: 80vh; /* Fill most of the viewport */
+    text-align: center;
+}
+
+.profile-info {
+    margin-top: 20px; /* Add spacing between profile picture and text */
+}
+
+.profile-info ul {
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0;
+}
+
+.profile-info ul li {
+    margin: 10px 0; /* Add spacing between list items */
+    font-size: 18px;
+}

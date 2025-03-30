@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cre Corner - Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Firebase Core SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js"></script>
+
+<!-- Firebase Authentication SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js"></script>
+
+<!-- Firebase Firestore SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js"></script>
+<script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyBTPul3mRk0CJNR898vn3OhRJ4SvugW3yY",
+  authDomain: "cre-corner.firebaseapp.com",
+  projectId: "cre-corner",
+  storageBucket: "cre-corner.firebasestorage.app",
+  messagingSenderId: "230812868544",
+  appId: "1:230812868544:web:1392c85ef54e76461d3225",
+  measurementId: "G-6V4994SWKT"
+};
+    firebase.initializeApp(firebaseConfig);
+    const db= firebase.firestore();
+    const auth=firebase.auth();
+    </script> 
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">Cre Corner</div>
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-icons">
+        <a href="wish.html" title="Wishlist"><i class="fas fa-heart"></i></a>
+        <a href="cart.html" title="Cart"><i class="fas fa-shopping-cart"></i></span></a>
+        <a href="profile.html" title="Profile"><i class="fas fa-user"></i></a>
+    </div>
+</header>
+
+<!-- Shop Section -->
+<section class="shop-section">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <a href="products/p1.html">
+            <img src="images/P1.jpg" alt="Product 1" class="product-image" >
+            <div class="product-info">
+                <h3>Bunny Keychain</h3>
+                <p class="price">INR 320.00</p>
+            </a>
+                <button class="add-to-cart" 
+                data-name="Bunny Keychain"
+                data-price="320.00"
+                data-image="images/P1.jpg"
+                onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <a href="products/p2.html">
+            <img src="images/P2.jpg" alt="Product 2" class="product-image">
+            <div class="product-info">
+                <h3>Kitty keychain</h3>
+                <p class="price">INR 320.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Kitty keychain"
+            data-price="320.00"
+            data-image="images/P2.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <a href="products/p3.html">
+            <img src="images/P3.jpg" alt="Product 3" class="product-image">
+            <div class="product-info">
+                <h3>Froggy keychain</h3>
+                <p class="price">INR 250.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Froggy Keychain"
+            data-price="250.00"
+            data-image="images/P3.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <a href="products/p4.html">
+            <img src="images/P4.jpg" alt="Product 4" class="product-image">
+            <div class="product-info">
+                <h3>Flower bear keychain</h3>
+                <p class="price">INR 250.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Flower bear keychain"
+            data-price="250.00"
+            data-image="images/P4.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p5.html">
+            <img src="images/P5.jpg" alt="Product 5" class="product-image">
+            <div class="product-info">
+                <h3>Miss Bloom keychain</h3>
+                <p class="price">INR 300.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Miss Bloom keychain"
+            data-price="300.00"
+            data-image="images/P5.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p6.html">
+            <img src="images/P6.jpg" alt="Product 6" class="product-image">
+            <div class="product-info">
+                <h3>Couple keychain</h3>
+                <p class="price">INR 350.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Couple keychain"
+            data-price="350.00"
+            data-image="images/P6.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p7.html">
+            <img src="images/P7.jpg" alt="Product 7" class="product-image">
+            <div class="product-info">
+                <h3>Clay Phone Case</h3>
+                <p class="price">INR 550.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Clay Phone Case"
+            data-price="550.00"
+            data-image="images/P7.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p8.html">
+            <img src="images/P8.jpg" alt="Product 8" class="product-image">
+            <div class="product-info">
+                <h3>Photo journal case</h3>
+                <p class="price">INR 500.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Photo journal case"
+            data-price="500.00"
+            data-image="images/P8.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p9.html">
+            <img src="images/Product2.jpg" alt="Product 9" class="product-image">
+            <div class="product-info">
+                <h3>Journal Phone case</h3>
+                <p class="price">INR 500.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Journal Phone case"
+            data-price="500.00"
+            data-image="images/Product2.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p10.html">
+            <img src="images/P9.jpg" alt="Product 10" class="product-image">
+            <div class="product-info">
+                <h3>Trinket Tray</h3>
+                <p class="price">INR 850.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Trinket Tray"
+            data-price="850.00"
+            data-image="images/P9.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p11.html">
+            <img src="images/P10.jpg" alt="Product 11" class="product-image">
+            <div class="product-info">
+                <h3>Clay pendant</h3>
+                <p class="price">INR 300.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Clay pendant"
+            data-price="300.00"
+            data-image="images/P10.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p12.html">
+            <img src="images/P11.jpg" alt="Product 12" class="product-image">
+            <div class="product-info">
+                <h3>Handpainted mirror(1)</h3>
+                <p class="price">INR 250.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Handpainted mirror(1)"
+            data-price="250.00"
+            data-image="images/P11.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p13.html">
+            <img src="images/P12.jpg" alt="Product 13" class="product-image">
+            <div class="product-info">
+                <h3>Handpainted mirror(2)</h3>
+                <p class="price">INR 250.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Handpainted mirror(2)"
+            data-price="250.00"
+            data-image="images/P12.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p14.html">
+            <img src="images/P13.jpg" alt="Product 14" class="product-image">
+            <div class="product-info">
+                <h3>Mumu Desk Buddy</h3>
+                <p class="price">INR 200.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Mumu Desk Buddy"
+            data-price="200.00"
+            data-image="images/P13.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <a href="products/p15.html">
+            <img src="images/P14.jpg" alt="Product 15" class="product-image">
+            <div class="product-info">
+                <h3>Fierce froggy desk buddy</h3>
+                <p class="price">INR 200.00</p>
+            </a>
+            <button class="add-to-cart" 
+            data-name="Fierce froggy desk buddy"
+            data-price="200.00"
+            data-image="images/P14.jpg"
+            onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+        <!-- Add more products as needed -->
+    </div>
+</section>
+
+<script>
+    // Add product to Firestore or localStorage cart
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    function addToCart(button) {
+    if (!loggedInUserId) {
+        alert('Please log in to add items to your cart.');
+        return;
+    }
+
+    const product = {
+        name: button.getAttribute('data-name'),
+        price: parseFloat(button.getAttribute('data-price')),
+        image: button.getAttribute('data-image'),
+        quantity: 1, // Default quantity
+    };
+
+    // Fetch the user's cart from localStorage
+    const userCartKey = `cart_${loggedInUserId}`;
+    const cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+
+    // Check if the product already exists in the cart
+    const existingProduct = cart.find(item => item.name === product.name);
+    if (existingProduct) {
+        existingProduct.quantity += 1; // Increment quantity
+    } else {
+        cart.push(product); // Add new product
+    }
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem(userCartKey, JSON.stringify(cart));
+    console.log(`Cart updated for user ${loggedInUserId}:`, cart);
+
+    // Optional: Update button text to indicate success
+    button.textContent = "✔ Added to Cart";
+    button.disabled = true;
+    setTimeout(() => {
+        button.textContent = "Add to Cart";
+        button.disabled = false;
+    }, 2000);
+}
+</script>
+<script src="cart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

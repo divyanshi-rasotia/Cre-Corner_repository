@@ -1,0 +1,116 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Reset default body margin */
+}
+
+/* Register Container Styling */
+.register-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px 40px;
+    text-align: center;
+    width: 100%; /* Responsive width */
+    max-width: 450px; /* Maximum width for larger screens */
+}
+
+/* Heading Styling */
+.register-container h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #3a4ba7;
+}
+
+/* Form Styling */
+.register-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align labels and inputs to the left */
+}
+
+.register-container label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+    font-weight: bold;
+}
+
+.register-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%; /* Full width of the container */
+}
+
+/* File Input Styling */
+.register-container input[type="file"] {
+    border: none;
+    font-size: 14px;
+}
+
+/* Button Styling */
+.register-container button {
+    background-color: #3a4ba7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.register-container button:hover {
+    background-color: #283591;
+}
+
+/* Register Link Styling */
+.register-container p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-container a {
+    color: #3a4ba7;
+    text-decoration: none;
+}
+
+.register-container a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+.footer {
+    position:var() ;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #888;
+}
+.messageDiv{
+    background-color: hsl(327,90%,28%);
+    color:white;
+    padding: 10px 20px;
+    margin:10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity:0;
+    animation:fadeOut 7s forwards;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product 12 - Cre Corner</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../product-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Firebase Core SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js"></script>
+
+<!-- Firebase Authentication SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js"></script>
+
+<!-- Firebase Firestore SDK -->
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js"></script>
+<script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyBTPul3mRk0CJNR898vn3OhRJ4SvugW3yY",
+  authDomain: "cre-corner.firebaseapp.com",
+  projectId: "cre-corner",
+  storageBucket: "cre-corner.firebasestorage.app",
+  messagingSenderId: "230812868544",
+  appId: "1:230812868544:web:1392c85ef54e76461d3225",
+  measurementId: "G-6V4994SWKT"
+};
+    firebase.initializeApp(firebaseConfig);
+    const db= firebase.firestore();
+    const auth=firebase.auth();
+    </script>
+</head>
+<body>
+
+<header class="navbar">
+    <nav class="nav-links">
+        <a href="../shop.html" class="back-to-shop"><i class="fas fa-arrow-left"></i></a>
+    </nav>
+    <div class="logo">Cre Corner</div>
+    <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../shop.html">Shop</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+    </nav>
+    <div class="nav-icons">
+        <a href="../wish.html" title="Wishlist"><i class="fas fa-heart"></i></a>
+        <a href="../cart.html" title="Cart"><i class="fas fa-shopping-cart"></i></span></a>
+    </div>
+</header>
+
+<section class="product-details">
+    <div class="product-gallery">
+        <img id="mainImage" src="../images/P11.jpg" alt="Product 12">
+        <div class="thumbnail-gallery">
+            <img src="../images/P11.jpg" onclick="changeImage('../images/P11.jpg')" alt="Thumbnail 1">
+            <!-- <img src="images/p-pendant.jpg" onclick="changeImage('images/p-pendant.jpg')" alt="Thumbnail 2">  -->
+            <!-- <img src="images/product1-3.jpg" onclick="changeImage('images/product1-3.jpg')" alt="Thumbnail 3"> -->
+        </div>
+    </div>
+    
+    <div class="product-info">
+        <h2>Handpainted mirror(1)</h2>
+        <h3>Price:  INR 250.00</h3>
+        <p>Availability: <span class="stock-status">In Stock</span></p>
+        <div class="button-container">
+            <!-- Add to Cart Button -->
+           <button class="btn add-to-cart" data-text="Add to Cart" onclick="addToCart(this)">Add to Cart</button>
+           <!-- Add to Wishlist Button -->
+           <button class="btn add-to-wishlist" data-text="Add to Wishlist"
+           data-name="Handpainted mirror(1)"
+            data-price="250.00"
+            data-image="../images/P11.jpg"
+             onclick="addToWishlist(this)">Add to Wishlist</button>
+       </div>
+        <p class="product-description"> This round acrylic mirror sheet features a delicate, hand-painted floral design with bright pink blossoms and white branches cascading along one side. The floral elements give the mirror a soft, natural aesthetic, perfect for adding a touch of elegance and warmth to any space. This mirror would appeal to nature lovers or those who appreciate minimal yet artistic decor.
+        </p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 Cre Corner. All rights reserved.</p>
+</footer>
+<script>
+function changeImage(src) {
+        document.getElementById("mainImage").src = src;
+    }
+
+// Initialize cart quantity
+let cartQuantity = 0;
+
+// Function for adding to cart
+function addToCart(button) {
+    // Change button text to show success
+    button.innerHTML = '✔ Added to Cart';
+
+    // Revert back to original text after 1.5 seconds
+    setTimeout(() => {
+        button.innerHTML = button.getAttribute('data-text');
+    }, 1500);
+
+    const product = {
+        name: 'Handpainted mirror(1)',
+    price: 250,
+    image: '../images/P11.jpg',
+        quantity: 1,
+    };
+
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (!loggedInUserId) {
+        alert('Please log in to add items to your cart.');
+        return;
+    }
+
+    const userCartKey = `cart_${loggedInUserId}`;
+    const cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+
+    const existingProduct = cart.find(item => item.name === product.name);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem(userCartKey, JSON.stringify(cart));
+    console.log(`Cart updated for ${loggedInUserId}:`, cart);
+}
+
+// Function for adding to wishlist
+function addToWishlist(button) {
+    // Change button text to show success
+    button.innerHTML = '✔ Added to Wishlist';
+
+    // Revert back to original text after 1.5 seconds
+    setTimeout(() => {
+        button.innerHTML = button.getAttribute('data-text');
+    }, 1500);
+
+    const product = {
+        name: button.getAttribute('data-name'),
+        price: button.getAttribute('data-price'),
+        image: button.getAttribute('data-image'),
+    };
+
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (!loggedInUserId) {
+        alert('Please log in to add items to your wishlist.');
+        return;
+    }
+
+    const wishlists = JSON.parse(localStorage.getItem('wishlists')) || {};
+    const userWishlist = wishlists[loggedInUserId] || [];
+
+    // Check if the product already exists
+    if (userWishlist.some(item => item.name === product.name)) {
+        alert('This item is already in your wishlist.');
+        return;
+    }
+
+    userWishlist.push(product);
+    wishlists[loggedInUserId] = userWishlist;
+    localStorage.setItem('wishlists', JSON.stringify(wishlists));
+    console.log(`Wishlist updated for ${loggedInUserId}:, userWishlist`);
+}
+</script>
+<script src="../cart.js"></script>
+<script src="../wish.js"></script>
+</body>
+</html>

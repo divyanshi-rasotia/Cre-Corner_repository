@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Cre Corner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="register.css">
+    <script type="module" src="register.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Cre Corner</div>
+    </header>
+
+    <section class="register-container">
+        <h1>Register</h1>
+        <div id = "signUpMessage" class="messageDiv" style="display:none;"></div>
+        <form id="registerForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- <label for="profilePic">Profile Picture</label>
+            <input type="file" id="profilePic" name="profilePic" accept="images/*"> -->
+
+            <button  id="submitSignUp">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Cre Corner. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+</html>
